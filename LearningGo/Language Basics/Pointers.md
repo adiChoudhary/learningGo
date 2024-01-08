@@ -1,0 +1,1 @@
+Similar to C++, only difference being that they don't have pointer arithmetic

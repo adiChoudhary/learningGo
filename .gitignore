@@ -1,0 +1,40 @@
+# Compiled binary files
+*.exe
+*.out
+*.dll
+*.o
+
+# Log files and runtime data
+*.log
+*.log.*
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Compiled Go binaries
+*.1
+*.so
+
+# Go specific
+*.a
+*.exe
+*.test
+*.prof
+
+# Dependency directories
+/vendor/
+/Godeps/
+
+# IDE specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Obsidian files
+.obsidian/
