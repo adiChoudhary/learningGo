@@ -1,1 +1,2 @@
-[basics / conditionals](<file:/home/adi/Documents/coding/learningGo/code/PracticingGo/basics/conditionals.go>)
+[conditionals.go](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/basics/conditionals.go)
+

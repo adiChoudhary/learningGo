@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	rootDir := "." // Change this to your project root directory
+	rootDir := "/home/adi/Documents/coding/learningGo/code/PracticingGo" // Change this to your project root directory
 	filePaths, err := getAllGoFiles(rootDir)
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -16,14 +16,11 @@ func main() {
 	}
 
 	for _, filePath := range filePaths {
-		absPath, _ := filepath.Abs(filePath)
-		linkText := strings.TrimPrefix(filePath, rootDir)
-		linkText = strings.TrimPrefix(linkText, "/")
-		linkText = strings.TrimSuffix(linkText, ".go")
-		linkText = strings.Replace(linkText, "/", " / ", -1)
-		linkText = strings.Replace(linkText, "_", "\\_", -1)
-
-		link := fmt.Sprintf("[%s](<file:%s>)", linkText, absPath)
+		relPath, _ := filepath.Abs(filePath)
+		relPath = strings.Replace(relPath, "/home/adi/Documents/coding/learningGo/code/PracticingGo/", "", 1)
+		temp := strings.Split(relPath, "/")
+		linkText := temp[len(temp)-1]
+		link := fmt.Sprintf("[%s](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/%s)", linkText, relPath)
 		fmt.Println(link)
 	}
 }
