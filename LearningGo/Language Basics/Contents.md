@@ -40,4 +40,4 @@
 3) Learn about rune in datatypes
 	1) Since string(temp) where temp is an integer give below error
 		1) ![[Pasted image 20231125203922.png]]
-4) 
+4) Learn about go.mod
