@@ -20,7 +20,7 @@ func main() {
 		relPath = strings.Replace(relPath, "/home/adi/Documents/coding/learningGo/code/PracticingGo/", "", 1)
 		temp := strings.Split(relPath, "/")
 		linkText := temp[len(temp)-1]
-		link := fmt.Sprintf("[%s](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/%s)", linkText, relPath)
+		link := fmt.Sprintf("[%s](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/%s)\n", linkText, relPath)
 		fmt.Println(link)
 	}
 }
