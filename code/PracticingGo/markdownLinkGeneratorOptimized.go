@@ -69,8 +69,9 @@ func mergeSections(existing, newSection Section) Section {
 func main() {
 	// Example usage:
 	fileLinks := map[string]string{
-		"ch2/q10calculatingEnergy.go": "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/danielLangQuestions/ch2/q10calculatingEnergy.go",
-		"ch2/q13compundValue.go":      "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/danielLangQuestions/ch2/q13compundValue.go",
+		"ch2/temp/q10calculatingEnergy.go": "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/danielLangQuestions/ch2/q10calculatingEnergy.go",
+		"ch2/q13compundValue.go":           "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/danielLangQuestions/ch2/q13compundValue.go",
+		"ch2/q14compundValue.go":           "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/danielLangQuestions/ch2/q13compundValue.go",
 		// Add more file links as needed...
 	}
 

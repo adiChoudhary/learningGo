@@ -40,17 +40,20 @@ func main() {
 			if strings.Contains(value, ".go") {
 				continue
 			}
-			if _, ok := currentMp[value]; (!ok) && (len(temp)-2) != index {
-				currentMp[value] = make(map[string]interface{})
-			} else if (!ok) && (len(temp)-2) == index {
-				currentMp[value] = [][]string{{temp[len(temp)-1], relPath}}
-			} else if (ok) && (len(temp)-2) == index {
-				currentMp[value] = append(currentMp[value].([][]string), []string{temp[len(temp)-1], relPath})
-			}
-			// Here type assertion is used to tell go a specific type since
-			// interface isn't a type
-			if (len(temp) - 2) != index {
-				currentMp = currentMp[value].(map[string]interface{})
+			// a/b/c/temp.go
+			if elem, ok := currentMp[value]; ok {
+				switch elem.(type) {
+				case map[string]interface{}:
+					currentMp = elem.(map[string]interface{})
+				case [][]string:
+					elem = append(currentMp[value].([][]string), []string{temp[len(temp)-1], relPath})
+				}
+			} else {
+				if index == (len(temp) - 2) {
+					currentMp[value] = [][]string{{temp[len(temp)-1], relPath}}
+				} else {
+					currentMp[value] = make(map[string]interface{})
+				}
 			}
 		}
 	}
