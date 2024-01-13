@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"math/rand"
 )
 
 func angleToRadian(degree float64) float64 {
@@ -42,5 +43,6 @@ func main() {
 	fmt.Println("Absolute value of -2:", math.Abs(-2))
 
 	// Random methods
-	fmt.Println()
+	fmt.Println(rand.Int())
+	fmt.Println(rand.Intn(10))
 }

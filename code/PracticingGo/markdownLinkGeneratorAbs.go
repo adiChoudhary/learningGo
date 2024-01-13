@@ -8,19 +8,14 @@ import (
 )
 
 func generateREADME(mp interface{}, depth int) {
-	if ele, ok := mp.(map[string]interface{}); ok {
-		keys := make([]string, len(ele))
-		i := 0
-		for k := range ele {
-			keys[i] = k
-			i++
+	switch val := mp.(type) {
+	case map[string]interface{}:
+		for key, value := range val {
+			fmt.Printf("%s %s\n", strings.Repeat("#", depth), key)
+			generateREADME(value, depth+1)
 		}
-		for _, value := range keys {
-			fmt.Printf("%s %s\n", strings.Repeat("#", depth), value)
-			generateREADME(ele[value], depth+1)
-		}
-	} else if ele, ok := mp.([][]string); ok {
-		for _, value := range ele {
+	case [][]string:
+		for _, value := range val {
 			fmt.Printf("[%s](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/%s)\n\n", value[0], value[1])
 		}
 	}
@@ -48,7 +43,7 @@ func main() {
 			if _, ok := currentMp[value]; (!ok) && (len(temp)-2) != index {
 				currentMp[value] = make(map[string]interface{})
 			} else if (!ok) && (len(temp)-2) == index {
-				currentMp[value] = [][]string{[]string{temp[len(temp)-1], relPath}}
+				currentMp[value] = [][]string{{temp[len(temp)-1], relPath}}
 			} else if (ok) && (len(temp)-2) == index {
 				currentMp[value] = append(currentMp[value].([][]string), []string{temp[len(temp)-1], relPath})
 			}
