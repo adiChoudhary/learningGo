@@ -45,7 +45,7 @@ func main() {
 			currentMp = currentMp[value].(map[string]interface{})
 		}
 	}
-	generateREADME(mp, "Go Practice Questions", 1)
+	generateREADME(mp, "Go Practice Questions", 2)
 }
 
 func getAllGoFiles(rootDir string) ([]string, error) {
