@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -57,6 +59,7 @@ func mergeSections(existing, newSection Section) Section {
 	for title, content := range newSection {
 		if existingContent, ok := existing[title]; ok {
 			// Title already exists, merge the content.
+			// TODO correct this logic to resolve incorrect merging issue
 			existing[title] = append(existingContent, content...)
 		} else {
 			// Title doesn't exist, add it.
@@ -66,20 +69,47 @@ func mergeSections(existing, newSection Section) Section {
 	return existing
 }
 
+func generateFileLinks(filePaths []string, baseUrl string) map[string]string {
+	mp := make(map[string]string)
+	for _, value := range filePaths {
+		mp[value] = baseUrl + value
+	}
+	return mp
+}
+
 func main() {
-	// Example usage:
-	fileLinks := map[string]string{
-		"ch2/temp/q10calculatingEnergy.go": "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/danielLangQuestions/ch2/q10calculatingEnergy.go",
-		"ch2/q13compundValue.go":           "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/danielLangQuestions/ch2/q13compundValue.go",
-		"ch2/q14compundValue.go":           "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/danielLangQuestions/ch2/q13compundValue.go",
-		// Add more file links as needed...
+	rootDir := "/home/adi/Documents/coding/learningGo/code/PracticingGo/basics" // Change this to your project root directory
+	filePaths, err := getAllGoFiles(rootDir)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
 	}
 
+	fileLinks := generateFileLinks(filePaths, "https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/")
 	data := ParseFileLinks(fileLinks)
-
+	fmt.Println(data)
 	// Generate Markdown content for the provided data.
-	result := data.GenerateMarkdown(2)
+	//result := data.GenerateMarkdown(2)
 
 	// Print the result.
-	fmt.Println(result)
+	//fmt.Println(result)
+}
+
+func getAllGoFiles(rootDir string) ([]string, error) {
+	var goFiles []string
+
+	err := filepath.Walk(rootDir, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if !info.IsDir() && strings.HasSuffix(info.Name(), ".go") {
+			goFiles = append(goFiles, path)
+		}
+		return nil
+	})
+	for index, value := range goFiles {
+		goFiles[index] = strings.Replace(value, "/home/adi/Documents/coding/learningGo/code/PracticingGo/", "", 1)
+	}
+
+	return goFiles, err
 }
