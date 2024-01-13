@@ -21,7 +21,7 @@ func generateREADME(mp interface{}, depth int) {
 		}
 	} else if ele, ok := mp.([][]string); ok {
 		for _, value := range ele {
-			fmt.Printf("[%s](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/%s)\n", value[0], value[1])
+			fmt.Printf("[%s](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/%s)\n\n", value[0], value[1])
 		}
 	}
 }
@@ -59,7 +59,7 @@ func main() {
 			}
 		}
 	}
-	generateREADME(mp, 1)
+	generateREADME(mp, 2)
 }
 
 func getAllGoFiles(rootDir string) ([]string, error) {
