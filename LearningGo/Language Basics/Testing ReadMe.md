@@ -1,7 +1,3 @@
-# learningGo
-
-## Link To Code Practiced till now
-
 # basics
 [conditionals.go](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/basics/conditionals.go)
 [constants.go](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/basics/constants.go)

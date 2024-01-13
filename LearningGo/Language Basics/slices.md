@@ -35,3 +35,5 @@ func Pic(dx, dy int) [][]uint8 {
    return picSlice  
 }
 ```
+
+[slices.go](https://github.com/adiChoudhary/learningGo/blob/main/code/PracticingGo/somethingMoreAdvanced/slices.go)

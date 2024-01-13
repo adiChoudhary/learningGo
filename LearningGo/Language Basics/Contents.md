@@ -32,7 +32,10 @@
 	3) [[Float To String]]
 2) [[Taking any type of input in Go]]
 3) [[Handling Time in Go]]
+4) [[Type Assertion]]
 
+#### Testing Automated Scripts
+1) [[Testing ReadMe]]
 #### Todo
 1) Go gives errors when declaring any unused variables, explore more on this behaviour
 	1) ![[Pasted image 20231209143350.png]]
