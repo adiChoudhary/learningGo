@@ -46,7 +46,7 @@ func main() {
 				case map[string]interface{}:
 					currentMp = elem.(map[string]interface{})
 				case [][]string:
-					elem = append(currentMp[value].([][]string), []string{temp[len(temp)-1], relPath})
+					currentMp[value] = append(currentMp[value].([][]string), []string{temp[len(temp)-1], relPath})
 				}
 			} else {
 				if index == (len(temp) - 2) {
