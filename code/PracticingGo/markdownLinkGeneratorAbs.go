@@ -34,7 +34,6 @@ func main() {
 		relPath = strings.Replace(relPath, "/home/adi/Documents/coding/learningGo/code/PracticingGo/", "", 1)
 		temp := strings.Split(relPath, "/")
 		currentMp := mp
-		//fmt.Println(relPath)
 		for _, value := range temp {
 			if strings.Contains(value, ".go") {
 				currentMp[value] = []string{value, relPath}
@@ -46,7 +45,6 @@ func main() {
 			currentMp = currentMp[value].(map[string]interface{})
 		}
 	}
-	//fmt.Println(mp)
 	generateREADME(mp, "Go Practice Questions", 1)
 }
 
