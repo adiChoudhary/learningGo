@@ -24,6 +24,7 @@
 6) [[map]]
 7) [[functions as values]]
 8) [[closures]](SUPER IMP!!!!) 
+9) [[interfaces]]
 
 #### Important Code Bits
 1) String Manipulation
