@@ -21,6 +21,7 @@ func Sqrt(x float64) (float64, error) {
 
 // This method is invoked implicitly by formatting methods like
 // println if a type has implemented Error method
+// pointer receiver are useful for composite type, not for float
 func (p ErrNegativeSqrt) Error() string {
 	return fmt.Sprintf("Can't Square Root %v", float64(p))
 }
